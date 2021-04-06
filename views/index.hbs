@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="esp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!--Llamado de partial-->
+
+  <div class="container-fluid">
+    <!--{{> navbar }}-->
+    <div class="row justify-content-center" style="min-height: 100vh;">
+      <div class="col-md-6 align-self-center">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">El tiempo</h4>
+          </div>
+          <div class="card-body">
+            <form action="/coords" method="GET" class="form-inline justify-content-between" id="coordinateQuery">
+              <input type="text" class="form-control" name="city" id="city">
+              <input type="submit" value="Obtener tiempo" class="btn btn-primary ">
+            </form>
+            <hr>
+            <span class="font-weight-bold"> {{ city }} </span><br>
+            {{#if icon}}
+            <span><img src={{icon}} alt={{desc}}></span>
+            {{/if}}
+            <span> {{temp}} {{desc}} </span>
+            {{#if err}}
+            <div class="alert alert-danger" role="alert">
+              {{err}}
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
